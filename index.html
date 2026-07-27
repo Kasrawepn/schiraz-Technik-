@@ -1,64 +1,234 @@
-<i class="fa-solid fa-coins"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Transparente Wertanrechnung</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                            Verwertbare Möbel, Antiquitäten oder Elektronik ziehen wir direkt von den Gesamtkosten ab. Sparen Sie bares Geld bei Ihrer Räumung.
-                        </p>
-                        <ul class="text-xs text-slate-300 space-y-2 mb-6">
-                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Ehrliche, marktgerechte Schätzung</li>
-                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Sofortige Verrechnung im Angebot</li>
-                            <li><i class="fa-solid fa-check text-brand-orange mr-2"></i>Nachhaltige Wiederverwendung</li>
-                        </ul>
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schiraz Technik | Küchenmontage, Möbelmontage & Handwerker in Mönchengladbach</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#f97316',
+                            orangeHover: '#ea580c',
+                            lightGray: '#f8fafc'
+                        },
+                        navy: {
+                            900: '#0f172a',
+                            950: '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .img-after-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            overflow: hidden;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-navy-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="bg-brand-orange text-white p-2.5 rounded-xl shadow-md">
+                        <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
                     </div>
-                    <a href="#calculator" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Schätzung anfordern <i class="fa-solid fa-arrow-right"></i>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-white block leading-none">Schiraz Technik</span>
+                        <span class="text-xs text-brand-orange font-medium mt-1 block">Inh. Saeid Oboudi</span>
+                    </div>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#services" class="hover:text-brand-orange transition-colors">Dienstleistungen</a>
+                    <a href="#calculator" class="hover:text-brand-orange transition-colors">Preisrechner</a>
+                    <a href="#about" class="hover:text-brand-orange transition-colors">Über uns</a>
+                    <a href="#reviews" class="hover:text-brand-orange transition-colors">Bewertungen</a>
+                    <a href="#booking" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl transition-all shadow-md font-semibold">Angebot anfordern</a>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-t border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Dienstleistungen</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Preisrechner</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Über uns</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Bewertungen</a>
+            <a href="#booking" onclick="toggleMobileMenu()" class="block w-full text-center bg-brand-orange text-white py-3 rounded-xl font-bold mt-2">Angebot anfordern</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-navy-900 text-white py-16 lg:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-slate-800/90 border border-slate-700 px-4 py-2 rounded-full text-xs font-semibold text-brand-orange">
+                        <i class="fa-solid fa-location-dot"></i> Mönchengladbach & Umgebung
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight leading-tight">
+                        Ihr Fachbetrieb für <span class="text-brand-orange">Küchen- & Möbelmontage</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Schiraz Technik bietet professionelle Küchenmontage, Möbelmontage, Umzüge, Transporte und allgemeine Handwerksleistungen in Mönchengladbach.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#booking" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-brand-orange/20">
+                            Jetzt Angebot anfordern
+                        </a>
+                        <a href="tel:01771852675" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-6 py-4 rounded-xl font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone text-brand-orange"></i> 0177 185 26 75
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-800">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80" alt="Küchenmontage Schiraz Technik" class="w-full h-80 lg:h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Unsere Leistungen</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Zuverlässiges Handwerk aus einer Hand</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Egal ob neuer Küchenaufbau, Möbelmontage oder kompletter Umzug – Saeid Oboudi steht für Präzision und Qualität.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-brand-lightGray rounded-2xl p-6 border border-slate-200 flex flex-col justify-between hover:border-brand-orange transition-all shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-kitchen-set"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">Küchenmontage</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Fachgerechter Aufbau und Anpassung von Küchen aller Hersteller inklusive Geräteanschluss und Arbeitsplattenzuschnitt.
+                        </p>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Küchenmontage')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
+                <!-- Service 2 -->
+                <div class="bg-brand-lightGray rounded-2xl p-6 border border-slate-200 flex flex-col justify-between hover:border-brand-orange transition-all shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-couch"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">Möbelmontage</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Präziser Auf- und Abbau von Schränken, Betten, Regalen und Schranksystemen schnell und sauber.
+                        </p>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Möbelmontage')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-brand-lightGray rounded-2xl p-6 border border-slate-200 flex flex-col justify-between hover:border-brand-orange transition-all shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">Umzug & Transport</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Sicherer Transport Ihrer Möbel und Ihres Hausrats in Mönchengladbach und der gesamten Region.
+                        </p>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Umzug')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-brand-lightGray rounded-2xl p-6 border border-slate-200 flex flex-col justify-between hover:border-brand-orange transition-all shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-navy-900 mb-2">Handwerker-Service</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Allgemeine Reparaturen, Montage von Lampen, Wandhalterungen, Vorhangschienen und kleine Renovierungsarbeiten.
+                        </p>
+                    </div>
+                    <a href="#calculator" onclick="selectServiceInCalc('Handwerker')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- INTERACTIVE COST CALCULATOR SECTION -->
-    <section id="calculator" class="py-20 bg-white">
+    <section id="calculator" class="py-20 bg-brand-lightGray border-t border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Transparente Preisschätzung</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Online Preisrechner</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ermitteln Sie in wenigen Schritten einen unverbindlichen Richtpreis für Ihr Projekt am Bodensee.</p>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ermitteln Sie in wenigen Schritten einen Richtpreis für Ihr Projekt in Mönchengladbach.</p>
             </div>
 
-            <div class="bg-brand-lightGray border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
                         <label class="block text-sm font-bold text-navy-900 mb-2">1. Dienstleistung wählen</label>
-                        <select id="calc-service" onchange="calculateEstimate()" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-brand-orange focus:outline-none mb-5">
-                            <option value="Entrümpelung">Entrümpelung & Sperrmüll</option>
-                            <option value="Haushaltsauflösung">Haushaltsauflösung / Nachlass</option>
+                        <select id="calc-service" onchange="calculateEstimate()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-brand-orange focus:outline-none mb-5">
+                            <option value="Küchenmontage">Küchenmontage</option>
+                            <option value="Möbelmontage">Möbelmontage</option>
                             <option value="Umzug">Umzug & Transport</option>
-                            <option value="Endreinigung">Endreinigung mit Garantie</option>
+                            <option value="Handwerker">Handwerker-Service</option>
                         </select>
 
-                        <label class="block text-sm font-bold text-navy-900 mb-2">2. Fläche ca. (<span id="area-val">60</span> m²)</label>
-                        <input type="range" id="calc-area" min="10" max="300" step="5" value="60" oninput="updateAreaText(this.value); calculateEstimate();" class="w-full accent-brand-orange mb-5">
+                        <label class="block text-sm font-bold text-navy-900 mb-2">2. Umfang / Fläche ca. (<span id="area-val">30</span> m² oder Einheiten)</label>
+                        <input type="range" id="calc-area" min="10" max="200" step="5" value="30" oninput="updateAreaText(this.value); calculateEstimate();" class="w-full accent-brand-orange mb-5">
 
                         <label class="block text-sm font-bold text-navy-900 mb-2">3. Etage / Zugänglichkeit</label>
-                        <select id="calc-floor" onchange="calculateEstimate()" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-brand-orange focus:outline-none mb-5">
+                        <select id="calc-floor" onchange="calculateEstimate()" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-brand-orange focus:outline-none mb-5">
                             <option value="1">Erdgeschoss / Aufzug vorhanden</option>
                             <option value="1.1">1. - 2. Etage (ohne Aufzug)</option>
                             <option value="1.25">3.+ Etage / Dachgeschoss (ohne Aufzug)</option>
                         </select>
                     </div>
 
-                    <div class="bg-navy-900 text-white rounded-2xl p-6 flex flex-col justify-between">
+                    <div class="bg-navy-900 text-white rounded-2xl p-6 flex flex-col justify-between shadow-md">
                         <div>
                             <span class="text-xs uppercase font-bold text-brand-orange tracking-wider block mb-1">Geschätzter Richtpreis</span>
-                            <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2" id="calc-result">ca. 450 - 650 €</div>
-                            <p class="text-xs text-slate-400 mb-4">Inkl. Anfahrt, Sortierung, fachgerechter Entsorgung & Besenreinigungs-Versprechen.</p>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2" id="calc-result">ca. 240 - 320 €</div>
+                            <p class="text-xs text-slate-400 mb-4">Inklusive Anfahrt in Mönchengladbach, saubere Ausführung und professionelles Werkzeug.</p>
                         </div>
                         <div>
                             <a href="#booking" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-3.5 px-4 rounded-xl font-bold text-sm transition-all text-center block shadow-lg">
-                                Festpreisangebot per Mail/Tel. anfordern
+                                Angebot jetzt anfordern
                             </a>
                         </div>
                     </div>
@@ -68,55 +238,73 @@
     </section>
 
     <!-- BEFORE / AFTER INTERACTIVE SLIDER -->
-    <section id="before-after" class="py-20 bg-brand-lightGray border-t border-slate-200">
+    <section id="before-after" class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Vorher / Nachher</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Überzeugen Sie sich selbst</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ziehen Sie den Regler, um das Ergebnis unserer Räumungs- und Reinigungsarbeiten zu sehen.</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Qualität, die man sieht</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ziehen Sie den Regler, um die Transformation nach unserer Küchen- und Möbelmontage zu sehen.</p>
             </div>
 
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl before-after-container aspect-video max-h-[500px] border-4 border-white" id="slider-container">
-                <!-- Before Image (Background) -->
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/13120605901474280451_0" alt="Vorher Entrümpelung" class="w-full h-full object-cover">
-                <span class="absolute top-4 right-4 bg-navy-900/80 text-white px-3 py-1 rounded-md text-xs font-bold">VORHER</span>
+            <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-video max-h-[480px] border-4 border-slate-100" id="slider-container">
+                <!-- Before Image -->
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80" alt="Vorher Montage" class="w-full h-full object-cover">
+                <span class="absolute top-4 right-4 bg-navy-900/80 text-white px-3 py-1 rounded-md text-xs font-bold z-0">VORHER</span>
 
-                <!-- After Image (Overlaid Clip) -->
-                <div class="img-after" id="after-img-wrap">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/6542780283244430849_0" alt="Nachher Entrümpelung und Reinigung" class="w-full h-full object-cover max-w-none" id="after-img-element">
+                <!-- After Image -->
+                <div class="img-after-wrap" id="after-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80" alt="Nachher Montierte Küche" class="w-full h-full object-cover max-w-none" id="after-img-element">
                     <span class="absolute top-4 left-4 bg-brand-orange text-white px-3 py-1 rounded-md text-xs font-bold">NACHHER</span>
                 </div>
 
                 <!-- Range Controller Input -->
-                <input type="range" min="0" max="100" value="50" oninput="moveSlider(this.value)" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize">
+                <input type="range" min="0" max="100" value="50" oninput="moveSlider(this.value)" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20">
             </div>
         </div>
     </section>
 
-    <!-- ABOUT US / LOCAL ADVANTAGE -->
-    <section id="about" class="py-20 bg-white">
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-20 bg-brand-lightGray border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block">Über ImmoFix Bodensee</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Ihr regionaler Partner in Radolfzell & Region</h2>
+                    <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block">Über Schiraz Technik</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Ihr Experte Saeid Oboudi in Mönchengladbach</h2>
                     <p class="text-slate-600 leading-relaxed">
-                        Ansässig in der Haselbrunnstraße in Radolfzell am Bodensee kennen wir die Anforderungen vor Ort bestens. Ob eng begrenzte Altstadtgassen in Konstanz, steile Treppenhäuser in Singen oder Anfahrt zu Gewerbegebieten – unser eingespieltes Team arbeitet schnell, lösungsorientiert und absolut termintreu.
+                        Schiraz Technik steht für Zuverlässigkeit, saubere Arbeit und faire Preise. Am Kapuzinerplatz 5 in 41061 Mönchengladbach ansässig, unterstützen wir Privat- und Gewerbekunden bei allen Anliegen rund um Montage, Transport und Handwerk.
                     </p>
                     <div class="grid sm:grid-cols-2 gap-4 text-sm font-semibold text-navy-900 pt-2">
-                        <div class="p-4 bg-brand-lightGray rounded-xl border border-slate-200">
-                            <i class="fa-solid fa-building-user text-brand-orange text-xl mb-2 block"></i>
-                            Lokale Verankerung
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-xl"></i>
+                            <span>Pünktlich & Zuverlässig</span>
                         </div>
-                        <div class="p-4 bg-brand-lightGray rounded-xl border border-slate-200">
-                            <i class="fa-solid fa-leaf text-emerald-600 text-xl mb-2 block"></i>
-                            Umweltgerechtes Recycling
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                            <i class="fa-solid fa-wrench text-brand-orange text-xl"></i>
+                            <span>Profi-Werkzeug</span>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/6542780283244430849_0" alt="ImmoFix Bodensee Standort Radolfzell" class="w-full h-96 object-cover">
+                    <div class="bg-navy-900 text-white rounded-3xl p-8 shadow-2xl border-4 border-slate-800 space-y-4">
+                        <h3 class="text-2xl font-bold text-brand-orange">Kontaktinformationen</h3>
+                        <div class="space-y-3 text-sm">
+                            <p class="flex items-center gap-3">
+                                <i class="fa-solid fa-user text-brand-orange w-5"></i>
+                                <span>Inhaber: <strong>Saeid Oboudi</strong></span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <i class="fa-solid fa-briefcase text-brand-orange w-5"></i>
+                                <span>Firma: <strong>Schiraz Technik</strong></span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-brand-orange w-5"></i>
+                                <span>Kapuzinerplatz 5, 41061 Mönchengladbach</span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <i class="fa-solid fa-mobile-screen text-brand-orange w-5"></i>
+                                <span>Mobil: <strong>0177 185 26 75</strong></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,33 +312,33 @@
     </section>
 
     <!-- REVIEWS SECTION -->
-    <section id="reviews" class="py-20 bg-brand-lightGray">
+    <section id="reviews" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Kundenstimmen</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Das sagen unsere Kunden</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Was unsere Kunden sagen</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4">"Sehr pünktlich und zuverlässig! Die Räumung des Hauses meiner Großeltern in Konstanz verlief makellos und besenrein."</p>
-                    <span class="font-bold text-navy-900 text-xs block">– Markus S., Konstanz</span>
+                    <p class="text-slate-600 text-sm mb-4">"Herr Oboudi hat unsere neue Küche perfekt aufgebaut. Sehr sauber gearbeitet und absolut pünktlich!"</p>
+                    <span class="font-bold text-navy-900 text-xs block">– Michael K., Mönchengladbach</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4">"Fairer Festpreis und tolle Wertanrechnung für alte Echtholzmöbel. Absolut empfehlenswert in Radolfzell!"</p>
-                    <span class="font-bold text-navy-900 text-xs block">– Sabine W., Radolfzell</span>
+                    <p class="text-slate-600 text-sm mb-4">"Der Möbeltransport und der anschließende Aufbau verliefen reibungslos. Sehr fairer Preis."</p>
+                    <span class="font-bold text-navy-900 text-xs block">– Sarah M., Mönchengladbach</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4">"Der Umzug samt anschließender Endreinigung in Singen verlief absolut stressfrei. Der Vermieter war begeistert."</p>
-                    <span class="font-bold text-navy-900 text-xs block">– Thomas K., Singen</span>
+                    <p class="text-slate-600 text-sm mb-4">"Super Handwerker-Service für kleine Arbeiten in der Wohnung. Alles genau so wie besprochen."</p>
+                    <span class="font-bold text-navy-900 text-xs block">– David P., Rheydt</span>
                 </div>
             </div>
         </div>
@@ -160,11 +348,11 @@
     <section id="booking" class="py-20 bg-navy-900 text-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Kostenloses Festpreisangebot anfordern</h2>
-                <p class="text-slate-300 mt-2 text-sm">Senden Sie uns eine Nachricht – wir melden uns innerhalb von 2 Stunden mit einem Angebot zurück.</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Unverbindliches Angebot anfordern</h2>
+                <p class="text-slate-300 mt-2 text-sm">Senden Sie uns eine Anfrage – Saeid Oboudi meldet sich umgehend bei Ihnen.</p>
             </div>
 
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4 bg-navy-950/60 p-6 sm:p-8 rounded-2xl border border-slate-700">
+            <form onsubmit="handleFormSubmit(event)" class="space-y-4 bg-navy-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Name *</label>
@@ -172,51 +360,32 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Telefonnummer *</label>
-                        <input type="tel" required placeholder="z.B. 0176 12345678" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
+                        <input type="tel" required placeholder="z.B. 0177 1234567" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
                     </div>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">E-Mail Adresse</label>
-                        <input type="email" placeholder="ihre.mail@beispiel.de" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Gewünschter Service</label>
+                        <select class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
+                            <option>Küchenmontage</option>
+                            <option>Möbelmontage</option>
+                            <option>Umzug & Transport</option>
+                            <option>Handwerker-Arbeiten</option>
+                        </select>
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Ort / PLZ</label>
-                        <input type="text" placeholder="z.B. 78315 Radolfzell" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
+                        <input type="text" placeholder="z.B. 41061 Mönchengladbach" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Nachricht / Objektdetails</label>
-                    <textarea rows="3" placeholder="Beschreiben Sie kurz Ihr Anliegen (z.B. 3-Zimmer-Wohnung räumen, 2. Stock)..." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"></textarea>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Nachricht / Details zum Auftrag</label>
+                    <textarea rows="3" placeholder="Beschreiben Sie Ihr Projekt (z.B. Aufbau einer Ikea-Küche, Transport von 3 Schränken)..." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"></textarea>
                 </div>
                 <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-brand-orange/30">
-                    Unverbindliches Angebot Absenden
+                    Anfrage Jetzt Absenden
                 </button>
             </form>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Häufige Fragen</span>
-                <h2 class="text-3xl font-extrabold text-navy-900">FAQ & Antowrten</h2>
-            </div>
-            <div class="space-y-4">
-                <details class="bg-brand-lightGray rounded-xl p-4 border border-slate-200">
-                    <summary class="font-bold text-navy-900 cursor-pointer">Wie funktioniert die Wertanrechnung?</summary>
-                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Bei der Vor-Ort-Besichtigung begutachten wir gut erhaltene Gegenstände (Möbel, Geräte, Sammlerstücke) und ziehen deren geschätzten Wert direkt vom Gesamtpreis ab.</p>
-                </details>
-                <details class="bg-brand-lightGray rounded-xl p-4 border border-slate-200">
-                    <summary class="font-bold text-navy-900 cursor-pointer">Ist die Erstbesichtigung wirklich kostenlos?</summary>
-                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Ja, im gesamten Landkreis Konstanz und Bodenseekreis bieten wir kostenfreie und unverbindliche Besichtigungstermine an.</p>
-                </details>
-                <details class="bg-brand-lightGray rounded-xl p-4 border border-slate-200">
-                    <summary class="font-bold text-navy-900 cursor-pointer">Was bedeutet "besenrein"?</summary>
-                    <p class="text-slate-600 text-sm mt-2 leading-relaxed">Besenrein bedeutet, dass sämtlicher Unrat entfernt und alle Räume gründlich gefegt übergeben werden. Ergänzend bieten wir auf Wunsch auch eine professionelle Endreinigung an.</p>
-                </details>
-            </div>
         </div>
     </section>
 
@@ -224,15 +393,15 @@
     <footer class="bg-navy-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-white font-bold text-lg mb-3">ImmoFix Bodensee</h3>
-                <p class="text-xs leading-relaxed">Ihr verlässlicher Partner für Räumung, Transport & Reinigung im Bodenseekreis.</p>
-                <p class="text-xs mt-3">Haselbrunnstraße 50, 78315 Radolfzell am Bodensee</p>
+                <h3 class="text-white font-bold text-lg mb-3">Schiraz Technik</h3>
+                <p class="text-xs leading-relaxed">Küchenmontage, Möbelmontage, Umzug, Transport & Handwerker-Services.</p>
+                <p class="text-xs mt-3">Inhaber: Saeid Oboudi</p>
+                <p class="text-xs">Kapuzinerplatz 5, 41061 Mönchengladbach</p>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-3">Kontakt</h4>
-                <p class="text-xs">Tel: +49 (0) 7732 987 6543</p>
-                <p class="text-xs">Mobil: +49 176 63762574</p>
-                <p class="text-xs">E-Mail: info@immofix-bodensee.de</p>
+                <p class="text-xs">Mobil: +49 177 185 26 75</p>
+                <p class="text-xs">Standort: Mönchengladbach & Umgebung</p>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-3">Rechtliches</h4>
@@ -244,7 +413,7 @@
             </div>
         </div>
         <div class="text-center text-xs text-slate-600 mt-8 pt-6 border-t border-slate-800">
-            © 2026 ImmoFix Bodensee. Alle Rechte vorbehalten.
+            © 2026 Schiraz Technik – Saeid Oboudi. Alle Rechte vorbehalten.
         </div>
     </footer>
 
@@ -264,13 +433,13 @@
             const area = parseFloat(document.getElementById('calc-area').value);
             const floorMultiplier = parseFloat(document.getElementById('calc-floor').value);
 
-            let baseRate = 7;
-            if (service === 'Haushaltsauflösung') baseRate = 9;
-            if (service === 'Umzug') baseRate = 8;
-            if (service === 'Endreinigung') baseRate = 5;
+            let baseRate = 8;
+            if (service === 'Küchenmontage') baseRate = 12;
+            if (service === 'Umzug') baseRate = 9;
+            if (service === 'Handwerker') baseRate = 7;
 
             let low = Math.round(area * baseRate * floorMultiplier);
-            let high = Math.round(low * 1.35);
+            let high = Math.round(low * 1.3);
 
             document.getElementById('calc-result').innerText = `ca. ${low} - ${high} €`;
         }
@@ -292,25 +461,20 @@
             }
         }
 
-        window.addEventListener('resize', () => {
+        function adjustSliderImgWidth() {
             const container = document.getElementById('slider-container');
             const afterImg = document.getElementById('after-img-element');
             if (container && afterImg) {
                 afterImg.style.width = container.offsetWidth + 'px';
             }
-        });
+        }
+
+        window.addEventListener('resize', adjustSliderImgWidth);
+        window.addEventListener('load', adjustSliderImgWidth);
 
         function handleFormSubmit(e) {
             e.preventDefault();
-            alert('Vielen Dank für Ihre Anfrage! Wir melden uns umgehend bei Ihnen.');
-        }
-
-        function toggleAdminModal() {
-            alert('CMS-Demo Modus geöffnet.');
-        }
-
-        function toggleRetellModal() {
-            alert('KI-Telefonassistent Test wird gestartet...');
+            alert('Vielen Dank für Ihre Anfrage! Saeid Oboudi wird sich kürze bei Ihnen melden.');
         }
     </script>
 </body>
