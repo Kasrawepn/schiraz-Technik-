@@ -46,19 +46,17 @@
             <div class="flex items-center justify-between h-20">
                 
                 <!-- LOGO SECTION -->
-                <div class="flex items-center gap-3">
-                    <!-- نمایش فایل لوگو -->
+                <a href="#" class="flex items-center gap-3">
                     <img src="logo.png" alt="SCHIRAZ KÜCHENTECHNIK Logo" class="h-12 w-auto object-contain" onerror="this.onerror=null; this.src='logo.pdf';">
                     <div>
                         <span class="text-xl font-black tracking-wider text-white block leading-none">SCHIRAZ</span>
                         <span class="text-xs text-brand-orange font-bold tracking-widest mt-1 block">KÜCHENTECHNIK</span>
                     </div>
-                </div>
+                </a>
 
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                     <a href="#services" class="hover:text-brand-orange transition-colors">Dienstleistungen</a>
                     <a href="#gallery" class="hover:text-brand-orange transition-colors">Galerie</a>
-                    <a href="#calculator" class="hover:text-brand-orange transition-colors">Preisrechner</a>
                     <a href="#about" class="hover:text-brand-orange transition-colors">Über uns</a>
                     <a href="#reviews" class="hover:text-brand-orange transition-colors">Bewertungen</a>
                     <a href="#booking" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl transition-all shadow-md font-semibold">Angebot anfordern</a>
@@ -76,7 +74,6 @@
         <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-t border-slate-800 px-4 pt-3 pb-6 space-y-3">
             <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Dienstleistungen</a>
             <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Galerie</a>
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Preisrechner</a>
             <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Über uns</a>
             <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Bewertungen</a>
             <a href="#booking" onclick="toggleMobileMenu()" class="block w-full text-center bg-brand-orange text-white py-3 rounded-xl font-bold mt-2">Angebot anfordern</a>
@@ -136,8 +133,8 @@
                             Fachgerechter Aufbau und Anpassung von Küchen aller Hersteller inklusive Geräteanschluss und Arbeitsplattenzuschnitt.
                         </p>
                     </div>
-                    <a href="#calculator" onclick="selectServiceInCalc('Küchenmontage')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -152,8 +149,8 @@
                             Präziser Auf- und Abbau von Schränken, Betten, Regalen und Schranksystemen schnell und sauber.
                         </p>
                     </div>
-                    <a href="#calculator" onclick="selectServiceInCalc('Möbelmontage')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -168,8 +165,8 @@
                             Sicherer Transport Ihrer Möbel und Ihres Hausrats in Mönchengladbach und der gesamten Region.
                         </p>
                     </div>
-                    <a href="#calculator" onclick="selectServiceInCalc('Umzug')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -184,8 +181,8 @@
                             Allgemeine Reparaturen, Montage von Lampen, Wandhalterungen, Vorhangschienen und kleine Renovierungsarbeiten.
                         </p>
                     </div>
-                    <a href="#calculator" onclick="selectServiceInCalc('Handwerker')" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Preis schätzen <i class="fa-solid fa-arrow-right"></i>
+                    <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
+                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -253,56 +250,8 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE COST CALCULATOR SECTION -->
-    <section id="calculator" class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Transparente Preisschätzung</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Online Preisrechner</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ermitteln Sie in wenigen Schritten einen Richtpreis für Ihr Projekt in Mönchengladbach.</p>
-            </div>
-
-            <div class="bg-brand-lightGray border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <label class="block text-sm font-bold text-navy-900 mb-2">1. Dienstleistung wählen</label>
-                        <select id="calc-service" onchange="calculateEstimate()" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-brand-orange focus:outline-none mb-5">
-                            <option value="Küchenmontage">Küchenmontage</option>
-                            <option value="Möbelmontage">Möbelmontage</option>
-                            <option value="Umzug">Umzug & Transport</option>
-                            <option value="Handwerker">Handwerker-Service</option>
-                        </select>
-
-                        <label class="block text-sm font-bold text-navy-900 mb-2">2. Umfang / Fläche ca. (<span id="area-val">30</span> m² oder Einheiten)</label>
-                        <input type="range" id="calc-area" min="10" max="200" step="5" value="30" oninput="updateAreaText(this.value); calculateEstimate();" class="w-full accent-brand-orange mb-5">
-
-                        <label class="block text-sm font-bold text-navy-900 mb-2">3. Etage / Zugänglichkeit</label>
-                        <select id="calc-floor" onchange="calculateEstimate()" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-brand-orange focus:outline-none mb-5">
-                            <option value="1">Erdgeschoss / Aufzug vorhanden</option>
-                            <option value="1.1">1. - 2. Etage (ohne Aufzug)</option>
-                            <option value="1.25">3.+ Etage / Dachgeschoss (ohne Aufzug)</option>
-                        </select>
-                    </div>
-
-                    <div class="bg-navy-900 text-white rounded-2xl p-6 flex flex-col justify-between shadow-md">
-                        <div>
-                            <span class="text-xs uppercase font-bold text-brand-orange tracking-wider block mb-1">Geschätzter Richtpreis</span>
-                            <div class="text-3xl sm:text-4xl font-extrabold text-white mb-2" id="calc-result">ca. 240 - 320 €</div>
-                            <p class="text-xs text-slate-400 mb-4">Inklusive Anfahrt in Mönchengladbach, saubere Ausführung und professionelles Werkzeug.</p>
-                        </div>
-                        <div>
-                            <a href="#booking" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-3.5 px-4 rounded-xl font-bold text-sm transition-all text-center block shadow-lg">
-                                Angebot jetzt anfordern
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- BEFORE / AFTER INTERACTIVE SLIDER -->
-    <section id="before-after" class="py-20 bg-brand-lightGray border-t border-slate-200">
+    <section id="before-after" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Vorher / Nachher</span>
@@ -328,7 +277,7 @@
     </section>
 
     <!-- ABOUT US SECTION -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-brand-lightGray border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
@@ -338,11 +287,11 @@
                         SCHIRAZ KÜCHENTECHNIK steht für Zuverlässigkeit, saubere Arbeit und faire Preise. Am Kapuzinerplatz 5 in 41061 Mönchengladbach ansässig, unterstützen wir Privat- und Gewerbekunden bei allen Anliegen rund um Montage, Transport und Handwerk.
                     </p>
                     <div class="grid sm:grid-cols-2 gap-4 text-sm font-semibold text-navy-900 pt-2">
-                        <div class="p-4 bg-brand-lightGray rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
                             <i class="fa-solid fa-circle-check text-brand-orange text-xl"></i>
                             <span>Pünktlich & Zuverlässig</span>
                         </div>
-                        <div class="p-4 bg-brand-lightGray rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
                             <i class="fa-solid fa-wrench text-brand-orange text-xl"></i>
                             <span>Profi-Werkzeug</span>
                         </div>
@@ -376,28 +325,28 @@
     </section>
 
     <!-- REVIEWS SECTION -->
-    <section id="reviews" class="py-20 bg-brand-lightGray border-t border-slate-200">
+    <section id="reviews" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Kundenstimmen</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Was unsere Kunden sagen</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-slate-600 text-sm mb-4">"Herr Oboudi hat unsere neue Küche perfekt aufgebaut. Sehr sauber gearbeitet und absolut pünktlich!"</p>
                     <span class="font-bold text-navy-900 text-xs block">– Michael K., Mönchengladbach</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-slate-600 text-sm mb-4">"Der Möbeltransport und der anschließende Aufbau verliefen reibungslos. Sehr fairer Preis."</p>
                     <span class="font-bold text-navy-900 text-xs block">– Sarah M., Mönchengladbach</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
@@ -408,12 +357,12 @@
         </div>
     </section>
 
-    <!-- BOOKING / CONTACT FORM SECTION -->
+    <!-- BOOKING / CONTACT FORM SECTION WITH UPLOAD -->
     <section id="booking" class="py-20 bg-navy-900 text-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Unverbindliches Angebot anfordern</h2>
-                <p class="text-slate-300 mt-2 text-sm">Senden Sie uns eine Anfrage – Saeid Oboudi meldet sich umgehend bei Ihnen.</p>
+                <p class="text-slate-300 mt-2 text-sm">Senden Sie uns Ihre Anfrage – inklusive Fotos oder Videos Ihrem Projekt.</p>
             </div>
 
             <form onsubmit="handleFormSubmit(event)" class="space-y-4 bg-navy-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
@@ -444,9 +393,22 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Nachricht / Details zum Auftrag</label>
-                    <textarea rows="3" placeholder="Beschreiben Sie Ihr Projekt (z.B. Aufbau einer Ikea-Küche, Transport von 3 Schränken)..." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"></textarea>
+                    <textarea rows="3" placeholder="Beschreiben Sie Ihr Projekt (z.B. Aufbau einer Ikea-Küche, Maße, Wünsche)..." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-brand-orange/30">
+                
+                <!-- FILE UPLOAD SECTION FOR PHOTOS & VIDEOS -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Fotos / Videos hochladen (optional)</label>
+                    <div class="relative border-2 border-dashed border-slate-700 hover:border-brand-orange rounded-xl p-6 text-center bg-navy-900 transition-colors cursor-pointer" onclick="document.getElementById('file-upload').click()">
+                        <i class="fa-solid fa-cloud-arrow-up text-3xl text-brand-orange mb-2 block"></i>
+                        <span class="text-xs text-slate-300 block font-medium">Klicken Sie hier, um Bilder oder Videos auszuwählen</span>
+                        <span class="text-[10px] text-slate-500 block mt-1">Erlaubt: JPG, PNG, MP4, MOV (max. 50 MB)</span>
+                        <input type="file" id="file-upload" name="files[]" multiple accept="image/*,video/*" class="hidden" onchange="showSelectedFiles(this)">
+                    </div>
+                    <div id="file-list" class="mt-2 text-xs text-brand-orange font-medium space-y-1"></div>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-brand-orange/30 mt-4">
                     Anfrage Jetzt Absenden
                 </button>
             </form>
@@ -488,32 +450,6 @@
             menu.classList.toggle('hidden');
         }
 
-        function updateAreaText(val) {
-            document.getElementById('area-val').innerText = val;
-        }
-
-        function calculateEstimate() {
-            const service = document.getElementById('calc-service').value;
-            const area = parseFloat(document.getElementById('calc-area').value);
-            const floorMultiplier = parseFloat(document.getElementById('calc-floor').value);
-
-            let baseRate = 8;
-            if (service === 'Küchenmontage') baseRate = 12;
-            if (service === 'Umzug') baseRate = 9;
-            if (service === 'Handwerker') baseRate = 7;
-
-            let low = Math.round(area * baseRate * floorMultiplier);
-            let high = Math.round(low * 1.3);
-
-            document.getElementById('calc-result').innerText = `ca. ${low} - ${high} €`;
-        }
-
-        function selectServiceInCalc(serviceName) {
-            const select = document.getElementById('calc-service');
-            select.value = serviceName;
-            calculateEstimate();
-        }
-
         function moveSlider(val) {
             const afterWrap = document.getElementById('after-img-wrap');
             const afterImg = document.getElementById('after-img-element');
@@ -535,6 +471,19 @@
 
         window.addEventListener('resize', adjustSliderImgWidth);
         window.addEventListener('load', adjustSliderImgWidth);
+
+        function showSelectedFiles(input) {
+            const listContainer = document.getElementById('file-list');
+            listContainer.innerHTML = '';
+            if (input.files && input.files.length > 0) {
+                for (let i = 0; i < input.files.length; i++) {
+                    const fileName = input.files[i].name;
+                    const item = document.createElement('div');
+                    item.innerHTML = `<i class="fa-solid fa-paperclip mr-1"></i> ${fileName}`;
+                    listContainer.appendChild(item);
+                }
+            }
+        }
 
         function handleFormSubmit(e) {
             e.preventDefault();
