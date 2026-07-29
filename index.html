@@ -7,6 +7,8 @@
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flag Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
     <script>
         tailwind.config = {
             theme: {
@@ -40,39 +42,17 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-orange selection:text-white relative">
 
-    <!-- LANGUAGE SELECTOR (FIXED TOP RIGHT) -->
+    <!-- WORKING CUSTOM LANGUAGE SELECTOR WITH FLAGS (TOP RIGHT) -->
     <div class="fixed top-3 right-4 z-[100] bg-navy-900/90 backdrop-blur-md p-1.5 px-3 rounded-xl border border-slate-700 shadow-xl flex items-center gap-2">
-        <i class="fa-solid fa-globe text-brand-orange text-xs"></i>
-        <div id="google_translate_element"></div>
+        <span id="current-flag" class="fi fi-de rounded-sm text-base"></span>
+        <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-transparent text-white text-xs font-semibold focus:outline-none cursor-pointer pr-1">
+            <option value="de" class="bg-navy-900 text-white">Deutsch</option>
+            <option value="en" class="bg-navy-900 text-white">English</option>
+            <option value="fr" class="bg-navy-900 text-white">Français</option>
+            <option value="es" class="bg-navy-900 text-white">Español</option>
+            <option value="it" class="bg-navy-900 text-white">Italiano</option>
+        </select>
     </div>
-
-    <style>
-        .goog-te-gadget-simple {
-            background-color: transparent !important;
-            border: none !important;
-            padding: 0 !important;
-            font-size: 12px !important;
-        }
-        .goog-te-gadget-simple span, .goog-te-menu-value span {
-            color: #ffffff !important;
-            font-family: inherit !important;
-        }
-        .goog-te-gadget-icon { display: none !important; }
-        .goog-te-banner-frame { display: none !important; }
-        body { top: 0px !important; }
-    </style>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'de',
-                includedLanguages: 'en,fr,es,it',
-                layout: google.translate.TranslateElement.SimpleLayout.VERTICAL,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-navy-900 text-white shadow-md">
@@ -89,11 +69,11 @@
                 </a>
 
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium pr-28">
-                    <a href="#services" class="hover:text-brand-orange transition-colors">Dienstleistungen</a>
-                    <a href="#gallery" class="hover:text-brand-orange transition-colors">Galerie</a>
-                    <a href="#about" class="hover:text-brand-orange transition-colors">Über uns</a>
-                    <a href="#reviews" class="hover:text-brand-orange transition-colors">Bewertungen</a>
-                    <a href="#booking" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl transition-all shadow-md font-semibold">Angebot anfordern</a>
+                    <a href="#services" data-i18n="nav_services" class="hover:text-brand-orange transition-colors">Dienstleistungen</a>
+                    <a href="#gallery" data-i18n="nav_gallery" class="hover:text-brand-orange transition-colors">Galerie</a>
+                    <a href="#about" data-i18n="nav_about" class="hover:text-brand-orange transition-colors">Über uns</a>
+                    <a href="#reviews" data-i18n="nav_reviews" class="hover:text-brand-orange transition-colors">Bewertungen</a>
+                    <a href="#booking" data-i18n="nav_quote" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-5 py-2.5 rounded-xl transition-all shadow-md font-semibold">Angebot anfordern</a>
                 </nav>
 
                 <div class="md:hidden flex items-center pr-24">
@@ -106,11 +86,11 @@
 
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-navy-950 border-t border-slate-800 px-4 pt-3 pb-6 space-y-3">
-            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Dienstleistungen</a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Galerie</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Über uns</a>
-            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Bewertungen</a>
-            <a href="#booking" onclick="toggleMobileMenu()" class="block w-full text-center bg-brand-orange text-white py-3 rounded-xl font-bold mt-2">Angebot anfordern</a>
+            <a href="#services" onclick="toggleMobileMenu()" data-i18n="nav_services" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Dienstleistungen</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" data-i18n="nav_gallery" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Galerie</a>
+            <a href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Über uns</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" data-i18n="nav_reviews" class="block py-2 text-slate-300 hover:text-white border-b border-slate-800/50">Bewertungen</a>
+            <a href="#booking" onclick="toggleMobileMenu()" data-i18n="nav_quote" class="block w-full text-center bg-brand-orange text-white py-3 rounded-xl font-bold mt-2">Angebot anfordern</a>
         </div>
     </header>
 
@@ -120,16 +100,16 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 bg-slate-800/90 border border-slate-700 px-4 py-2 rounded-full text-xs font-semibold text-brand-orange">
-                        <i class="fa-solid fa-location-dot"></i> Mönchengladbach & Umgebung
+                        <i class="fa-solid fa-location-dot"></i> <span data-i18n="hero_location">Mönchengladbach & Umgebung</span>
                     </div>
                     <h1 class="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight leading-tight">
-                        Ihr Fachbetrieb für <span class="text-brand-orange">Küchen- & Möbelmontage</span>
+                        <span data-i18n="hero_title_1">Ihr Fachbetrieb für</span> <span class="text-brand-orange" data-i18n="hero_title_2">Küchen- & Möbelmontage</span>
                     </h1>
-                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    <p data-i18n="hero_desc" class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
                         SCHIRAZ KÜCHENTECHNIK bietet professionelle Küchenmontage, Möbelmontage, Umzüge, Transporte und allgemeine Handwerksleistungen in Mönchengladbach.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <a href="#booking" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-brand-orange/20">
+                        <a href="#booking" data-i18n="hero_btn_quote" class="bg-brand-orange hover:bg-brand-orangeHover text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-brand-orange/20">
                             Jetzt Angebot anfordern
                         </a>
                         <a href="tel:01771852675" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-6 py-4 rounded-xl font-bold text-center transition-all flex items-center justify-center gap-2">
@@ -150,9 +130,9 @@
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Unsere Leistungen</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Zuverlässiges Handwerk aus einer Hand</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Egal ob neuer Küchenaufbau, Möbelmontage oder kompletter Umzug – Saeid Oboudi steht für Präzision und Qualität.</p>
+                <span data-i18n="services_subtitle" class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Unsere Leistungen</span>
+                <h2 data-i18n="services_title" class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Zuverlässiges Handwerk aus einer Hand</h2>
+                <p data-i18n="services_desc" class="text-slate-600 mt-2 text-sm sm:text-base">Egal ob neuer Küchenaufbau, Möbelmontage oder kompletter Umzug – Saeid Oboudi steht für Präzision und Qualität.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -162,13 +142,13 @@
                         <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
                             <i class="fa-solid fa-kitchen-set"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-navy-900 mb-2">Küchenmontage</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        <h3 data-i18n="s1_title" class="text-lg font-bold text-navy-900 mb-2">Küchenmontage</h3>
+                        <p data-i18n="s1_desc" class="text-slate-600 text-sm leading-relaxed mb-4">
                             Fachgerechter Aufbau und Anpassung von Küchen aller Hersteller inklusive Geräteanschluss und Arbeitsplattenzuschnitt.
                         </p>
                     </div>
                     <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
+                        <span data-i18n="btn_request">Angebot anfordern</span> <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -178,13 +158,13 @@
                         <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
                             <i class="fa-solid fa-couch"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-navy-900 mb-2">Möbelmontage</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        <h3 data-i18n="s2_title" class="text-lg font-bold text-navy-900 mb-2">Möbelmontage</h3>
+                        <p data-i18n="s2_desc" class="text-slate-600 text-sm leading-relaxed mb-4">
                             Präziser Auf- und Abbau von Schränken, Betten, Regalen und Schranksystemen schnell und sauber.
                         </p>
                     </div>
                     <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
+                        <span data-i18n="btn_request">Angebot anfordern</span> <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -194,13 +174,13 @@
                         <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
                             <i class="fa-solid fa-truck-ramp-box"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-navy-900 mb-2">Umzug & Transport</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        <h3 data-i18n="s3_title" class="text-lg font-bold text-navy-900 mb-2">Umzug & Transport</h3>
+                        <p data-i18n="s3_desc" class="text-slate-600 text-sm leading-relaxed mb-4">
                             Sicherer Transport Ihrer Möbel und Ihres Hausrats in Mönchengladbach und der gesamten Region.
                         </p>
                     </div>
                     <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
+                        <span data-i18n="btn_request">Angebot anfordern</span> <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -210,13 +190,13 @@
                         <div class="w-12 h-12 bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-xl font-bold mb-4">
                             <i class="fa-solid fa-hammer"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-navy-900 mb-2">Handwerker-Service</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        <h3 data-i18n="s4_title" class="text-lg font-bold text-navy-900 mb-2">Handwerker-Service</h3>
+                        <p data-i18n="s4_desc" class="text-slate-600 text-sm leading-relaxed mb-4">
                             Allgemeine Reparaturen, Montage von Lampen, Wandhalterungen, Vorhangschienen und kleine Renovierungsarbeiten.
                         </p>
                     </div>
                     <a href="#booking" class="inline-flex items-center gap-2 text-brand-orange font-bold text-sm hover:gap-3 transition-all">
-                        Angebot anfordern <i class="fa-solid fa-arrow-right"></i>
+                        <span data-i18n="btn_request">Angebot anfordern</span> <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -227,57 +207,57 @@
     <section id="gallery" class="py-20 bg-brand-lightGray border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Galerie</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Unsere echten Projekte</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ein Einblick in unsere professionell montierten Küchen und Arbeitswerkzeuge.</p>
+                <span data-i18n="gallery_subtitle" class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Galerie</span>
+                <h2 data-i18n="gallery_title" class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Unsere echten Projekte</h2>
+                <p data-i18n="gallery_desc" class="text-slate-600 mt-2 text-sm sm:text-base">Ein Einblick in unsere professionell montierten Küchen und Arbeitswerkzeuge.</p>
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 group">
                     <img src="work1.jpeg" alt="Küchenmontage Ergebnis" class="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300">
                     <div class="p-4">
-                        <h4 class="font-bold text-navy-900 text-sm">Moderne Einbauküche</h4>
-                        <p class="text-xs text-slate-500 mt-1">Präzise Montage & perfekter Passsitz</p>
+                        <h4 data-i18n="g1_title" class="font-bold text-navy-900 text-sm">Moderne Einbauküche</h4>
+                        <p data-i18n="g1_desc" class="text-xs text-slate-500 mt-1">Präzise Montage & perfekter Passsitz</p>
                     </div>
                 </div>
 
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 group">
                     <img src="work5.jpeg" alt="Saeid Oboudi bei der Montage" class="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300">
                     <div class="p-4">
-                        <h4 class="font-bold text-navy-900 text-sm">Saeid Oboudi im Einsatz</h4>
-                        <p class="text-xs text-slate-500 mt-1">Detailgenaue Anpassung von Möbeln</p>
+                        <h4 data-i18n="g2_title" class="font-bold text-navy-900 text-sm">Saeid Oboudi im Einsatz</h4>
+                        <p data-i18n="g2_desc" class="text-xs text-slate-500 mt-1">Detailgenaue Anpassung von Möbeln</p>
                     </div>
                 </div>
 
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 group">
                     <img src="work3.jpeg" alt="Große Küchenzeile" class="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300">
                     <div class="p-4">
-                        <h4 class="font-bold text-navy-900 text-sm">Großräumige Küchenmontage</h4>
-                        <p class="text-xs text-slate-500 mt-1">Kompletter Aufbau inklusive Kücheninsel</p>
+                        <h4 data-i18n="g3_title" class="font-bold text-navy-900 text-sm">Großräumige Küchenmontage</h4>
+                        <p data-i18n="g3_desc" class="text-xs text-slate-500 mt-1">Kompletter Aufbau inklusive Kücheninsel</p>
                     </div>
                 </div>
 
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 group">
                     <img src="work4.jpeg" alt="Küche Blau" class="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300">
                     <div class="p-4">
-                        <h4 class="font-bold text-navy-900 text-sm">Küchenmontage & Geräte</h4>
-                        <p class="text-xs text-slate-500 mt-1">Saubere Installation und Anschlüsse</p>
+                        <h4 data-i18n="g4_title" class="font-bold text-navy-900 text-sm">Küchenmontage & Geräte</h4>
+                        <p data-i18n="g4_desc" class="text-xs text-slate-500 mt-1">Saubere Installation und Anschlüsse</p>
                     </div>
                 </div>
 
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 group">
                     <img src="tools.jpeg" alt="Profi Werkzeug Festool" class="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300">
                     <div class="p-4">
-                        <h4 class="font-bold text-navy-900 text-sm">Professionelles Werkzeug</h4>
-                        <p class="text-xs text-slate-500 mt-1">Qualitätswerkzeug von Festool für exakte Ergebnisse</p>
+                        <h4 data-i18n="g5_title" class="font-bold text-navy-900 text-sm">Professionelles Werkzeug</h4>
+                        <p data-i18n="g5_desc" class="text-xs text-slate-500 mt-1">Qualitätswerkzeug von Festool für exakte Ergebnisse</p>
                     </div>
                 </div>
 
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 group">
                     <img src="work2.jpeg" alt="Luxus Küchenmontage" class="w-full h-64 object-cover group-hover:scale-105 transition-all duration-300">
                     <div class="p-4">
-                        <h4 class="font-bold text-navy-900 text-sm">Exklusive Küchenbeleuchtung</h4>
-                        <p class="text-xs text-slate-500 mt-1">Aufbau mit integrierter LED-Technik</p>
+                        <h4 data-i18n="g6_title" class="font-bold text-navy-900 text-sm">Exklusive Küchenbeleuchtung</h4>
+                        <p data-i18n="g6_desc" class="text-xs text-slate-500 mt-1">Aufbau mit integrierter LED-Technik</p>
                     </div>
                 </div>
             </div>
@@ -288,20 +268,20 @@
     <section id="before-after" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Vorher / Nachher</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Qualität, die man sieht</h2>
-                <p class="text-slate-600 mt-2 text-sm sm:text-base">Ziehen Sie den Regler, um die Transformation nach unserer Küchen- und Möbelmontage zu sehen.</p>
+                <span data-i18n="ba_subtitle" class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Vorher / Nachher</span>
+                <h2 data-i18n="ba_title" class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Qualität, die man sieht</h2>
+                <p data-i18n="ba_desc" class="text-slate-600 mt-2 text-sm sm:text-base">Ziehen Sie den Regler, um die Transformation nach unserer Küchen- und Möbelmontage zu sehen.</p>
             </div>
 
             <div class="relative rounded-2xl overflow-hidden shadow-xl aspect-video max-h-[480px] border-4 border-slate-200 bg-white" id="slider-container">
                 <!-- Before Image -->
                 <img src="work3.jpeg" alt="Vorher Montage" class="w-full h-full object-cover">
-                <span class="absolute top-4 right-4 bg-navy-900/80 text-white px-3 py-1 rounded-md text-xs font-bold z-0">IN ARBEIT</span>
+                <span data-i18n="ba_in_progress" class="absolute top-4 right-4 bg-navy-900/80 text-white px-3 py-1 rounded-md text-xs font-bold z-0">IN ARBEIT</span>
 
                 <!-- After Image -->
                 <div class="img-after-wrap" id="after-img-wrap">
                     <img src="work1.jpeg" alt="Nachher Montierte Küche" class="w-full h-full object-cover max-w-none" id="after-img-element">
-                    <span class="absolute top-4 left-4 bg-brand-orange text-white px-3 py-1 rounded-md text-xs font-bold">FERTIGGESTELLT</span>
+                    <span data-i18n="ba_completed" class="absolute top-4 left-4 bg-brand-orange text-white px-3 py-1 rounded-md text-xs font-bold">FERTIGGESTELLT</span>
                 </div>
 
                 <!-- Range Controller Input -->
@@ -315,33 +295,33 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
-                    <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block">Über SCHIRAZ KÜCHENTECHNIK</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Ihr Experte Saeid Oboudi in Mönchengladbach</h2>
-                    <p class="text-slate-600 leading-relaxed">
+                    <span data-i18n="about_subtitle" class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block">Über SCHIRAZ KÜCHENTECHNIK</span>
+                    <h2 data-i18n="about_title" class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Ihr Experte Saeid Oboudi in Mönchengladbach</h2>
+                    <p data-i18n="about_desc" class="text-slate-600 leading-relaxed">
                         SCHIRAZ KÜCHENTECHNIK steht für Zuverlässigkeit, saubere Arbeit und faire Preise. Am Kapuzinerplatz 5 in 41061 Mönchengladbach ansässig, unterstützen wir Privat- und Gewerbekunden bei allen Anliegen rund um Montage, Transport und Handwerk.
                     </p>
                     <div class="grid sm:grid-cols-2 gap-4 text-sm font-semibold text-navy-900 pt-2">
                         <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
                             <i class="fa-solid fa-circle-check text-brand-orange text-xl"></i>
-                            <span>Pünktlich & Zuverlässig</span>
+                            <span data-i18n="about_feat_1">Pünktlich & Zuverlässig</span>
                         </div>
                         <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
                             <i class="fa-solid fa-wrench text-brand-orange text-xl"></i>
-                            <span>Profi-Werkzeug</span>
+                            <span data-i18n="about_feat_2">Profi-Werkzeug</span>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
                     <div class="bg-navy-900 text-white rounded-3xl p-8 shadow-2xl border-4 border-slate-800 space-y-4">
-                        <h3 class="text-2xl font-bold text-brand-orange">Kontaktinformationen</h3>
+                        <h3 data-i18n="about_contact_title" class="text-2xl font-bold text-brand-orange">Kontaktinformationen</h3>
                         <div class="space-y-3 text-sm">
                             <p class="flex items-center gap-3">
                                 <i class="fa-solid fa-user text-brand-orange w-5"></i>
-                                <span>Inhaber: <strong>Saeid Oboudi</strong></span>
+                                <span><span data-i18n="owner">Inhaber</span>: <strong>Saeid Oboudi</strong></span>
                             </p>
                             <p class="flex items-center gap-3">
                                 <i class="fa-solid fa-briefcase text-brand-orange w-5"></i>
-                                <span>Firma: <strong>SCHIRAZ KÜCHENTECHNIK</strong></span>
+                                <span><span data-i18n="company">Firma</span>: <strong>SCHIRAZ KÜCHENTECHNIK</strong></span>
                             </p>
                             <p class="flex items-center gap-3">
                                 <i class="fa-solid fa-location-dot text-brand-orange w-5"></i>
@@ -349,7 +329,7 @@
                             </p>
                             <p class="flex items-center gap-3">
                                 <i class="fa-solid fa-mobile-screen text-brand-orange w-5"></i>
-                                <span>Mobil: <strong>0177 185 26 75</strong></span>
+                                <span><span data-i18n="mobile">Mobil</span>: <strong>0177 185 26 75</strong></span>
                             </p>
                         </div>
                     </div>
@@ -362,29 +342,29 @@
     <section id="reviews" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Kundenstimmen</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Was unsere Kunden sagen</h2>
+                <span data-i18n="reviews_subtitle" class="text-brand-orange font-extrabold uppercase text-xs tracking-widest block mb-2">Kundenstimmen</span>
+                <h2 data-i18n="reviews_title" class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Was unsere Kunden sagen</h2>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4">"Herr Oboudi hat unsere neue Küche perfekt aufgebaut. Sehr sauber gearbeitet und absolut pünktlich!"</p>
+                    <p data-i18n="r1_text" class="text-slate-600 text-sm mb-4">"Herr Oboudi hat unsere neue Küche perfekt aufgebaut. Sehr sauber gearbeitet und absolut pünktlich!"</p>
                     <span class="font-bold text-navy-900 text-xs block">– Michael K., Mönchengladbach</span>
                 </div>
                 <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4">"Der Möbeltransport und der anschließende Aufbau verliefen reibungslos. Sehr fairer Preis."</p>
+                    <p data-i18n="r2_text" class="text-slate-600 text-sm mb-4">"Der Möbeltransport und der anschließende Aufbau verliefen reibungslos. Sehr fairer Preis."</p>
                     <span class="font-bold text-navy-900 text-xs block">– Sarah M., Mönchengladbach</span>
                 </div>
                 <div class="bg-brand-lightGray p-6 rounded-2xl shadow-sm border border-slate-200">
                     <div class="flex text-amber-400 mb-3 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4">"Super Handwerker-Service für kleine Arbeiten in der Wohnung. Alles genau so wie besprochen."</p>
+                    <p data-i18n="r3_text" class="text-slate-600 text-sm mb-4">"Super Handwerker-Service für kleine Arbeiten in der Wohnung. Alles genau so wie besprochen."</p>
                     <span class="font-bold text-navy-900 text-xs block">– David P., Rheydt</span>
                 </div>
             </div>
@@ -395,54 +375,54 @@
     <section id="booking" class="py-20 bg-navy-900 text-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Unverbindliches Angebot anfordern</h2>
-                <p class="text-slate-300 mt-2 text-sm">Senden Sie uns Ihre Anfrage – inklusive Fotos oder Videos Ihrem Projekt.</p>
+                <h2 data-i18n="form_title" class="text-3xl sm:text-4xl font-extrabold tracking-tight">Unverbindliches Angebot anfordern</h2>
+                <p data-i18n="form_subtitle" class="text-slate-300 mt-2 text-sm">Senden Sie uns Ihre Anfrage – inklusive Fotos oder Videos Ihrem Projekt.</p>
             </div>
 
             <form onsubmit="handleFormSubmit(event)" class="space-y-4 bg-navy-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl">
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Name *</label>
+                        <label data-i18n="lbl_name" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Name *</label>
                         <input type="text" required placeholder="Ihr Name" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Telefonnummer *</label>
+                        <label data-i18n="lbl_phone" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Telefonnummer *</label>
                         <input type="tel" required placeholder="z.B. 0177 1234567" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
                     </div>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Gewünschter Service</label>
+                        <label data-i18n="lbl_service" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Gewünschter Service</label>
                         <select class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
-                            <option>Küchenmontage</option>
-                            <option>Möbelmontage</option>
-                            <option>Umzug & Transport</option>
-                            <option>Handwerker-Arbeiten</option>
+                            <option data-i18n="s1_title">Küchenmontage</option>
+                            <option data-i18n="s2_title">Möbelmontage</option>
+                            <option data-i18n="s3_title">Umzug & Transport</option>
+                            <option data-i18n="s4_title">Handwerker-Arbeiten</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Ort / PLZ</label>
+                        <label data-i18n="lbl_location" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Ort / PLZ</label>
                         <input type="text" placeholder="z.B. 41061 Mönchengladbach" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Nachricht / Details zum Auftrag</label>
-                    <textarea rows="3" placeholder="Beschreiben Sie Ihr Projekt (z.B. Aufbau einer Ikea-Küche, Maße, Wünsche)..." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"></textarea>
+                    <label data-i18n="lbl_message" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Nachricht / Details zum Auftrag</label>
+                    <textarea rows="3" placeholder="Beschreiben Sie Ihr Projekt..." class="w-full bg-navy-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange text-white"></textarea>
                 </div>
                 
                 <!-- FILE UPLOAD SECTION FOR PHOTOS & VIDEOS -->
                 <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Fotos / Videos hochladen (optional)</label>
+                    <label data-i18n="lbl_upload" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Fotos / Videos hochladen (optional)</label>
                     <div class="relative border-2 border-dashed border-slate-700 hover:border-brand-orange rounded-xl p-6 text-center bg-navy-900 transition-colors cursor-pointer" onclick="document.getElementById('file-upload').click()">
                         <i class="fa-solid fa-cloud-arrow-up text-3xl text-brand-orange mb-2 block"></i>
-                        <span class="text-xs text-slate-300 block font-medium">Klicken Sie hier, um Bilder oder Videos auszuwählen</span>
-                        <span class="text-[10px] text-slate-500 block mt-1">Erlaubt: JPG, PNG, MP4, MOV (max. 50 MB)</span>
+                        <span data-i18n="upload_click" class="text-xs text-slate-300 block font-medium">Klicken Sie hier, um Bilder oder Videos auszuwählen</span>
+                        <span data-i18n="upload_allowed" class="text-[10px] text-slate-500 block mt-1">Erlaubt: JPG, PNG, MP4, MOV (max. 50 MB)</span>
                         <input type="file" id="file-upload" name="files[]" multiple accept="image/*,video/*" class="hidden" onchange="showSelectedFiles(this)">
                     </div>
                     <div id="file-list" class="mt-2 text-xs text-brand-orange font-medium space-y-1"></div>
                 </div>
 
-                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-brand-orange/30 mt-4">
+                <button type="submit" data-i18n="btn_submit" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white py-4 rounded-xl font-bold text-base transition-all shadow-lg shadow-brand-orange/30 mt-4">
                     Anfrage Jetzt Absenden
                 </button>
             </form>
@@ -454,17 +434,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
             <div>
                 <h3 class="text-white font-bold text-lg mb-3">SCHIRAZ KÜCHENTECHNIK</h3>
-                <p class="text-xs leading-relaxed">Küchenmontage, Möbelmontage, Umzug, Transport & Handwerker-Services.</p>
-                <p class="text-xs mt-3">Inhaber: Saeid Oboudi</p>
+                <p data-i18n="footer_desc" class="text-xs leading-relaxed">Küchenmontage, Möbelmontage, Umzug, Transport & Handwerker-Services.</p>
+                <p class="text-xs mt-3"><span data-i18n="owner">Inhaber</span>: Saeid Oboudi</p>
                 <p class="text-xs">Kapuzinerplatz 5, 41061 Mönchengladbach</p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-3">Kontakt</h4>
-                <p class="text-xs">Mobil: +49 177 185 26 75</p>
-                <p class="text-xs">Standort: Mönchengladbach & Umgebung</p>
+                <h4 data-i18n="footer_contact" class="text-white font-bold mb-3">Kontakt</h4>
+                <p class="text-xs"><span data-i18n="mobile">Mobil</span>: +49 177 185 26 75</p>
+                <p class="text-xs"><span data-i18n="location">Standort</span>: Mönchengladbach & Umgebung</p>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-3">Rechtliches</h4>
+                <h4 data-i18n="footer_legal" class="text-white font-bold mb-3">Rechtliches</h4>
                 <div class="flex flex-col gap-1 text-xs">
                     <a href="#" class="hover:text-white transition-colors">Impressum</a>
                     <a href="#" class="hover:text-white transition-colors">Datenschutz</a>
@@ -479,22 +459,412 @@
 
     <!-- FLOATING CONTACT BUTTONS (FIXED AT BOTTOM RIGHT) -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-center">
-        <!-- BOT BUTTON -->
         <a href="#booking" title="Chat-Bot" class="w-12 h-12 sm:w-14 sm:h-14 bg-navy-950 text-brand-orange border-2 border-brand-orange rounded-full flex items-center justify-center text-xl sm:text-2xl shadow-xl hover:scale-110 transition-transform duration-200">
             <i class="fa-solid fa-robot"></i>
         </a>
-        <!-- WHATSAPP BUTTON -->
         <a href="https://wa.me/491771852675" target="_blank" title="WhatsApp" class="w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-xl hover:scale-110 transition-transform duration-200 hover:bg-emerald-600">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <!-- DIRECT PHONE CALL BUTTON -->
         <a href="tel:01771852675" title="Anrufen" class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-orange text-white rounded-full flex items-center justify-center text-xl sm:text-2xl shadow-xl hover:scale-110 transition-transform duration-200 hover:bg-brand-orangeHover">
             <i class="fa-solid fa-phone"></i>
         </a>
     </div>
 
-    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <!-- LANGUAGE DICTIONARY & INTERACTIVITY SCRIPT -->
     <script>
+        const flags = {
+            de: 'fi-de',
+            en: 'fi-gb',
+            fr: 'fi-fr',
+            es: 'fi-es',
+            it: 'fi-it'
+        };
+
+        const translations = {
+            de: {
+                nav_services: "Dienstleistungen",
+                nav_gallery: "Galerie",
+                nav_about: "Über uns",
+                nav_reviews: "Bewertungen",
+                nav_quote: "Angebot anfordern",
+                hero_location: "Mönchengladbach & Umgebung",
+                hero_title_1: "Ihr Fachbetrieb für",
+                hero_title_2: "Küchen- & Möbelmontage",
+                hero_desc: "SCHIRAZ KÜCHENTECHNIK bietet professionelle Küchenmontage, Möbelmontage, Umzüge, Transporte und allgemeine Handwerksleistungen in Mönchengladbach.",
+                hero_btn_quote: "Jetzt Angebot anfordern",
+                services_subtitle: "Unsere Leistungen",
+                services_title: "Zuverlässiges Handwerk aus einer Hand",
+                services_desc: "Egal ob neuer Küchenaufbau, Möbelmontage oder kompletter Umzug – Saeid Oboudi steht für Präzision und Qualität.",
+                s1_title: "Küchenmontage",
+                s1_desc: "Fachgerechter Aufbau und Anpassung von Küchen aller Hersteller inklusive Geräteanschluss und Arbeitsplattenzuschnitt.",
+                s2_title: "Möbelmontage",
+                s2_desc: "Präziser Auf- und Abbau von Schränken, Betten, Regalen und Schranksystemen schnell und sauber.",
+                s3_title: "Umzug & Transport",
+                s3_desc: "Sicherer Transport Ihrer Möbel und Ihres Hausrats in Mönchengladbach und der gesamten Region.",
+                s4_title: "Handwerker-Service",
+                s4_desc: "Allgemeine Reparaturen, Montage von Lampen, Wandhalterungen, Vorhangschienen und kleine Renovierungsarbeiten.",
+                btn_request: "Angebot anfordern",
+                gallery_subtitle: "Galerie",
+                gallery_title: "Unsere echten Projekte",
+                gallery_desc: "Ein Einblick in unsere professionell montierten Küchen und Arbeitswerkzeuge.",
+                g1_title: "Moderne Einbauküche",
+                g1_desc: "Präzise Montage & perfekter Passsitz",
+                g2_title: "Saeid Oboudi im Einsatz",
+                g2_desc: "Detailgenaue Anpassung von Möbeln",
+                g3_title: "Großräumige Küchenmontage",
+                g3_desc: "Kompletter Aufbau inklusive Kücheninsel",
+                g4_title: "Küchenmontage & Geräte",
+                g4_desc: "Saubere Installation und Anschlüsse",
+                g5_title: "Professionelles Werkzeug",
+                g5_desc: "Qualitätswerkzeug von Festool für exakte Ergebnisse",
+                g6_title: "Exklusive Küchenbeleuchtung",
+                g6_desc: "Aufbau mit integrierter LED-Technik",
+                ba_subtitle: "Vorher / Nachher",
+                ba_title: "Qualität, die man sieht",
+                ba_desc: "Ziehen Sie den Regler, um die Transformation nach unserer Küchen- und Möbelmontage zu sehen.",
+                ba_in_progress: "IN ARBEIT",
+                ba_completed: "FERTIGGESTELLT",
+                about_subtitle: "Über SCHIRAZ KÜCHENTECHNIK",
+                about_title: "Ihr Experte Saeid Oboudi in Mönchengladbach",
+                about_desc: "SCHIRAZ KÜCHENTECHNIK steht für Zuverlässigkeit, saubere Arbeit und faire Preise. Am Kapuzinerplatz 5 in 41061 Mönchengladbach ansässig, unterstützen wir Privat- und Gewerbekunden bei allen Anliegen rund um Montage, Transport und Handwerk.",
+                about_feat_1: "Pünktlich & Zuverlässig",
+                about_feat_2: "Profi-Werkzeug",
+                about_contact_title: "Kontaktinformationen",
+                owner: "Inhaber",
+                company: "Firma",
+                mobile: "Mobil",
+                location: "Standort",
+                reviews_subtitle: "Kundenstimmen",
+                reviews_title: "Was unsere Kunden sagen",
+                r1_text: '"Herr Oboudi hat unsere neue Küche perfekt aufgebaut. Sehr sauber gearbeitet und absolut pünktlich!"',
+                r2_text: '"Der Möbeltransport und der anschließende Aufbau verliefen reibungslos. Sehr fairer Preis."',
+                r3_text: '"Super Handwerker-Service für kleine Arbeiten in der Wohnung. Alles genau so wie besprochen."',
+                form_title: "Unverbindliches Angebot anfordern",
+                form_subtitle: "Senden Sie uns Ihre Anfrage – inklusive Fotos oder Videos Ihrem Projekt.",
+                lbl_name: "Name *",
+                lbl_phone: "Telefonnummer *",
+                lbl_service: "Gewünschter Service",
+                lbl_location: "Ort / PLZ",
+                lbl_message: "Nachricht / Details zum Auftrag",
+                lbl_upload: "Fotos / Videos hochladen (optional)",
+                upload_click: "Klicken Sie hier, um Bilder oder Videos auszuwählen",
+                upload_allowed: "Erlaubt: JPG, PNG, MP4, MOV (max. 50 MB)",
+                btn_submit: "Anfrage Jetzt Absenden",
+                footer_desc: "Küchenmontage, Möbelmontage, Umzug, Transport & Handwerker-Services.",
+                footer_contact: "Kontakt",
+                footer_legal: "Rechtliches"
+            },
+            en: {
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_about: "About Us",
+                nav_reviews: "Reviews",
+                nav_quote: "Get a Quote",
+                hero_location: "Mönchengladbach & Surrounding Areas",
+                hero_title_1: "Your Specialist for",
+                hero_title_2: "Kitchen & Furniture Assembly",
+                hero_desc: "SCHIRAZ KÜCHENTECHNIK offers professional kitchen assembly, furniture assembly, relocations, transport, and handyman services in Mönchengladbach.",
+                hero_btn_quote: "Request a Quote Now",
+                services_subtitle: "Our Services",
+                services_title: "Reliable Craftsmanship from a Single Source",
+                services_desc: "Whether new kitchen installation, furniture assembly, or complete move – Saeid Oboudi guarantees precision and quality.",
+                s1_title: "Kitchen Assembly",
+                s1_desc: "Professional assembly and customization of kitchens from all manufacturers, including appliance connection and countertop fitting.",
+                s2_title: "Furniture Assembly",
+                s2_desc: "Precise setup and dismantling of cabinets, beds, shelves, and wardrobe systems, quickly and cleanly.",
+                s3_title: "Moving & Transport",
+                s3_desc: "Safe transport of your furniture and household goods in Mönchengladbach and the entire region.",
+                s4_title: "Handyman Service",
+                s4_desc: "General repairs, mounting lamps, wall brackets, curtain rails, and minor renovation work.",
+                btn_request: "Get a Quote",
+                gallery_subtitle: "Gallery",
+                gallery_title: "Our Real Projects",
+                gallery_desc: "A glimpse into our professionally assembled kitchens and tools.",
+                g1_title: "Modern Fitted Kitchen",
+                g1_desc: "Precise assembly & perfect fit",
+                g2_title: "Saeid Oboudi at Work",
+                g2_desc: "Detailed adjustment of furniture",
+                g3_title: "Spacious Kitchen Assembly",
+                g3_desc: "Complete setup including kitchen island",
+                g4_title: "Kitchen & Appliances",
+                g4_desc: "Clean installation and connections",
+                g5_title: "Professional Tools",
+                g5_desc: "High-quality Festool equipment for precise results",
+                g6_title: "Exclusive Kitchen Lighting",
+                g6_desc: "Assembly with integrated LED technology",
+                ba_subtitle: "Before / After",
+                ba_title: "Quality You Can See",
+                ba_desc: "Drag the slider to see the transformation after our assembly work.",
+                ba_in_progress: "IN PROGRESS",
+                ba_completed: "COMPLETED",
+                about_subtitle: "About SCHIRAZ KÜCHENTECHNIK",
+                about_title: "Your Expert Saeid Oboudi in Mönchengladbach",
+                about_desc: "SCHIRAZ KÜCHENTECHNIK stands for reliability, clean work, and fair pricing. Based at Kapuzinerplatz 5 in 41061 Mönchengladbach, we assist residential and commercial clients.",
+                about_feat_1: "Punctual & Reliable",
+                about_feat_2: "Professional Tools",
+                about_contact_title: "Contact Information",
+                owner: "Owner",
+                company: "Company",
+                mobile: "Mobile",
+                location: "Location",
+                reviews_subtitle: "Testimonials",
+                reviews_title: "What Our Clients Say",
+                r1_text: '"Mr. Oboudi assembled our new kitchen perfectly. Clean work and absolutely punctual!"',
+                r2_text: '"The furniture transport and setup went smoothly. Very fair pricing."',
+                r3_text: '"Great handyman service for small jobs around the apartment. Everything exactly as agreed."',
+                form_title: "Request a Non-Binding Quote",
+                form_subtitle: "Send us your inquiry – including project photos or videos.",
+                lbl_name: "Name *",
+                lbl_phone: "Phone Number *",
+                lbl_service: "Desired Service",
+                lbl_location: "City / Zip Code",
+                lbl_message: "Message / Project Details",
+                lbl_upload: "Upload Photos / Videos (optional)",
+                upload_click: "Click here to select images or videos",
+                upload_allowed: "Allowed: JPG, PNG, MP4, MOV (max. 50 MB)",
+                btn_submit: "Submit Request Now",
+                footer_desc: "Kitchen assembly, furniture mounting, moving, transport & handyman services.",
+                footer_contact: "Contact",
+                footer_legal: "Legal"
+            },
+            fr: {
+                nav_services: "Services",
+                nav_gallery: "Galerie",
+                nav_about: "À propos",
+                nav_reviews: "Avis",
+                nav_quote: "Demander un devis",
+                hero_location: "Mönchengladbach et ses environs",
+                hero_title_1: "Votre spécialiste en",
+                hero_title_2: "Montage de cuisines & meubles",
+                hero_desc: "SCHIRAZ KÜCHENTECHNIK propose un montage professionnel de cuisines, meubles, déménagements et services de bricolage.",
+                hero_btn_quote: "Demander un devis maintenant",
+                services_subtitle: "Nos services",
+                services_title: "Un artisanat fiable d'une seule source",
+                services_desc: "Qu'il s'agisse d'une nouvelle cuisine ou d'un déménagement, Saeid Oboudi garantit précision et qualité.",
+                s1_title: "Montage de cuisine",
+                s1_desc: "Installation et ajustement professionnels de cuisines de toutes marques avec raccordement d'appareils.",
+                s2_title: "Montage de meubles",
+                s2_desc: "Montage et démontage précis d'armoires, lits, étagères rapidement et proprement.",
+                s3_title: "Déménagement & Transport",
+                s3_desc: "Transport sécurisé de vos meubles et effets personnels dans toute la région.",
+                s4_title: "Service de bricolage",
+                s4_desc: "Réparations générales, installation de lampes, supports muraux et petites rénovations.",
+                btn_request: "Demander un devis",
+                gallery_subtitle: "Galerie",
+                gallery_title: "Nos projets réels",
+                gallery_desc: "Un aperçu de nos cuisines et outils professionnels.",
+                g1_title: "Cuisine intégrée moderne",
+                g1_desc: "Montage précis & ajustement parfait",
+                g2_title: "Saeid Oboudi en action",
+                g2_desc: "Ajustement minutieux des meubles",
+                g3_title: "Montage de grande cuisine",
+                g3_desc: "Installation complète avec îlot central",
+                g4_title: "Cuisine & Électroménager",
+                g4_desc: "Installation propre et raccordements",
+                g5_title: "Outillage professionnel",
+                g5_desc: "Équipement Festool de qualité pour des résultats précis",
+                g6_title: "Éclairage de cuisine exclusif",
+                g6_desc: "Montage avec technologie LED intégrée",
+                ba_subtitle: "Avant / Après",
+                ba_title: "Une qualité visible",
+                ba_desc: "Faites glisser le curseur pour voir la transformation.",
+                ba_in_progress: "EN COURS",
+                ba_completed: "TERMINÉ",
+                about_subtitle: "À propos de SCHIRAZ KÜCHENTECHNIK",
+                about_title: "Votre expert Saeid Oboudi à Mönchengladbach",
+                about_desc: "Fiabilité, travail propre et tarifs équitables au Kapuzinerplatz 5 à 41061 Mönchengladbach.",
+                about_feat_1: "Ponctuel & Fiable",
+                about_feat_2: "Outillage Pro",
+                about_contact_title: "Informations de contact",
+                owner: "Propriétaire",
+                company: "Entreprise",
+                mobile: "Mobile",
+                location: "Lieu",
+                reviews_subtitle: "Témoignages",
+                reviews_title: "Ce que disent nos clients",
+                r1_text: '"M. Oboudi a parfaitement monté notre cuisine. Travail très propre et ponctuel !"',
+                r2_text: '"Transport et montage sans problème. Prix très correct."',
+                r3_text: '"Excellent service pour les petits travaux à domicile."',
+                form_title: "Demander un devis gratuit",
+                form_subtitle: "Envoyez-nous votre demande avec photos ou vidéos.",
+                lbl_name: "Nom *",
+                lbl_phone: "Téléphone *",
+                lbl_service: "Service souhaité",
+                lbl_location: "Ville / Code postal",
+                lbl_message: "Message / Détails du projet",
+                lbl_upload: "Télécharger des photos / vidéos (optionnel)",
+                upload_click: "Cliquez ici pour sélectionner des fichiers",
+                upload_allowed: "Autorisé : JPG, PNG, MP4, MOV (max. 50 Mo)",
+                btn_submit: "Envoyer la demande",
+                footer_desc: "Montage de cuisines, meubles, déménagement et bricolage.",
+                footer_contact: "Contact",
+                footer_legal: "Mentions légales"
+            },
+            es: {
+                nav_services: "Servicios",
+                nav_gallery: "Galería",
+                nav_about: "Nosotros",
+                nav_reviews: "Opiniones",
+                nav_quote: "Solicitar presupuesto",
+                hero_location: "Mönchengladbach y alrededores",
+                hero_title_1: "Su especialista en",
+                hero_title_2: "Montaje de cocinas y muebles",
+                hero_desc: "SCHIRAZ KÜCHENTECHNIK ofrece montaje profesional de cocinas, muebles, mudanzas y servicios de bricolaje.",
+                hero_btn_quote: "Solicitar presupuesto ahora",
+                services_subtitle: "Nuestros servicios",
+                services_title: "Trabajo profesional de una sola mano",
+                services_desc: "Ya sea instalación de cocina o mudanza completa, Saeid Oboudi garantiza precisión y calidad.",
+                s1_title: "Montaje de cocinas",
+                s1_desc: "Montaje profesional de cocinas de todas las marcas con conexión de electrodomésticos.",
+                s2_title: "Montaje de muebles",
+                s2_desc: "Montaje y desmontaje preciso de armarios, camas y estanterías de forma rápida y limpia.",
+                s3_title: "Mudanzas y transporte",
+                s3_desc: "Transporte seguro de sus muebles e enseres en toda la región.",
+                s4_title: "Servicios de bricolaje",
+                s4_desc: "Reparaciones generales, instalación de lámparas, soportes de pared y pequeñas reformas.",
+                btn_request: "Solicitar presupuesto",
+                gallery_subtitle: "Galería",
+                gallery_title: "Nuestros proyectos reales",
+                gallery_desc: "Una muestra de nuestras cocinas montadas y herramientas profesionales.",
+                g1_title: "Cocina integral moderna",
+                g1_desc: "Montaje preciso y ajuste perfecto",
+                g2_title: "Saeid Oboudi en acción",
+                g2_desc: "Ajuste detallado de muebles",
+                g3_title: "Montaje de cocina grande",
+                g3_desc: "Instalación completa incluyendo isla",
+                g4_title: "Cocina y electrodomésticos",
+                g4_desc: "Instalación limpia y conexiones",
+                g5_title: "Herramientas profesionales",
+                g5_desc: "Equipamiento Festool de calidad para resultados exactos",
+                g6_title: "Iluminación exclusiva de cocina",
+                g6_desc: "Montaje con tecnología LED integrada",
+                ba_subtitle: "Antes / Después",
+                ba_title: "Calidad que se ve",
+                ba_desc: "Arrastre el deslizador para ver la transformación.",
+                ba_in_progress: "EN PROCESO",
+                ba_completed: "FINALIZADO",
+                about_subtitle: "Sobre SCHIRAZ KÜCHENTECHNIK",
+                about_title: "Su experto Saeid Oboudi en Mönchengladbach",
+                about_desc: "Garantía de fiabilidad, trabajo limpio y precios justos en Kapuzinerplatz 5, Mönchengladbach.",
+                about_feat_1: "Puntual y fiable",
+                about_feat_2: "Herramientas pro",
+                about_contact_title: "Información de contacto",
+                owner: "Propietario",
+                company: "Empresa",
+                mobile: "Móvil",
+                location: "Ubicación",
+                reviews_subtitle: "Testimonios",
+                reviews_title: "Lo que dicen nuestros clientes",
+                r1_text: '"El Sr. Oboudi montó nuestra cocina de forma perfecta. ¡Muy limpio y puntual!"',
+                r2_text: '"El transporte de muebles y el montaje fueron impecables."',
+                r3_text: '"Excelente servicio de bricolaje para pequeños trabajos en el hogar."',
+                form_title: "Solicitar presupuesto sin compromiso",
+                form_subtitle: "Envíenos su consulta con fotos o vídeos de su proyecto.",
+                lbl_name: "Nombre *",
+                lbl_phone: "Teléfono *",
+                lbl_service: "Servicio deseado",
+                lbl_location: "Ciudad / Código Postal",
+                lbl_message: "Mensaje / Detalles",
+                lbl_upload: "Subir fotos / vídeos (opcional)",
+                upload_click: "Haga clic aquí para seleccionar archivos",
+                upload_allowed: "Permitido: JPG, PNG, MP4, MOV (máx. 50 MB)",
+                btn_submit: "Enviar solicitud ahora",
+                footer_desc: "Montaje de cocinas, muebles, mudanzas y bricolaje.",
+                footer_contact: "Contacto",
+                footer_legal: "Aviso legal"
+            },
+            it: {
+                nav_services: "Servizi",
+                nav_gallery: "Galleria",
+                nav_about: "Chi siamo",
+                nav_reviews: "Recensioni",
+                nav_quote: "Richiedi preventivo",
+                hero_location: "Mönchengladbach e dintorni",
+                hero_title_1: "Il vostro specialista in",
+                hero_title_2: "Montaggio cucine e mobili",
+                hero_desc: "SCHIRAZ KÜCHENTECHNIK offre montaggio professionale di cucine, mobili, traslochi e piccoli lavori artigianali.",
+                hero_btn_quote: "Richiedi un preventivo ora",
+                services_subtitle: "I nostri servizi",
+                services_title: "Artigianato affidabile da un'unica fonte",
+                services_desc: "Che si tratti di una nuova cucina o di un trasloco, Saeid Oboudi garantisce precisione e qualità.",
+                s1_title: "Montaggio cucine",
+                s1_desc: "Montaggio e adattamento professionale di cucine di tutte le marche con allacciamento elettrodomestici.",
+                s2_title: "Montaggio mobili",
+                s2_desc: "Montaggio e smontaggio preciso di armadi, letti e scaffali in modo rapido e pulito.",
+                s3_title: "Traslochi e trasporti",
+                s3_desc: "Trasporto sicuro dei vostri mobili e masserizie in tutta la regione.",
+                s4_title: "Servizio artigianale",
+                s4_desc: "Riparazioni generali, montaggio lampade, supporti TV e piccole ristrutturazioni.",
+                btn_request: "Richiedi preventivo",
+                gallery_subtitle: "Galleria",
+                gallery_title: "I nostri progetti reali",
+                gallery_desc: "Uno sguardo alle nostre cucine montate e alle attrezzature professionali.",
+                g1_title: "Cucina componibile moderna",
+                g1_desc: "Montaggio preciso e vestibilità perfetta",
+                g2_title: "Saeid Oboudi al lavoro",
+                g2_desc: "Adattamento dettagliato dei mobili",
+                g3_title: "Montaggio grande cucina",
+                g3_desc: "Installazione completa inclusa isola",
+                g4_title: "Cucina ed elettrodomestici",
+                g4_desc: "Installazione pulita e allacciamenti",
+                g5_title: "Attrezzature professionali",
+                g5_desc: "Strumenti Festool di alta qualità per risultati esatti",
+                g6_title: "Illuminazione cucina esclusiva",
+                g6_desc: "Montaggio con tecnologia LED integrata",
+                ba_subtitle: "Prima / Dopo",
+                ba_title: "Qualità che si vede",
+                ba_desc: "Trascina lo cursore per vedere la trasformazione.",
+                ba_in_progress: "IN CORSO",
+                ba_completed: "COMPLETATO",
+                about_subtitle: "Su SCHIRAZ KÜCHENTECHNIK",
+                about_title: "Il vostro esperto Saeid Oboudi a Mönchengladbach",
+                about_desc: "Affidabilità, lavoro pulito e prezzi equi in Kapuzinerplatz 5, Mönchengladbach.",
+                about_feat_1: "Puntuale e affidabile",
+                about_feat_2: "Attrezzi Pro",
+                about_contact_title: "Informazioni di contatto",
+                owner: "Titolare",
+                company: "Azienda",
+                mobile: "Cellulare",
+                location: "Sede",
+                reviews_subtitle: "Testimonianze",
+                reviews_title: "Cosa dicono i nostri clienti",
+                r1_text: '"Il Sig. Oboudi ha montato la nostra nuova cucina in modo perfetto. Molto pulito e puntuale!"',
+                r2_text: '"Il trasporto e il montaggio dei mobili sono andati benissimo."',
+                r3_text: '"Ottimo servizio per piccoli lavori in casa. Tutto esattamente come concordato."',
+                form_title: "Richiedi un preventivo gratuito",
+                form_subtitle: "Inviaci la tua richiesta con foto o video del progetto.",
+                lbl_name: "Nome *",
+                lbl_phone: "Telefono *",
+                lbl_service: "Servizio richiesto",
+                lbl_location: "Città / CAP",
+                lbl_message: "Messaggio / Dettagli",
+                lbl_upload: "Carica foto / video (opzionale)",
+                upload_click: "Clicca qui per selezionare i file",
+                upload_allowed: "Consentito: JPG, PNG, MP4, MOV (max. 50 MB)",
+                btn_submit: "Invia richiesta ora",
+                footer_desc: "Montaggio cucine, mobili, traslochi e servizi artigianali.",
+                footer_contact: "Contatto",
+                footer_legal: "Note legali"
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Update flag
+            const flagElement = document.getElementById('current-flag');
+            flagElement.className = `fi ${flags[lang]} rounded-sm text-base`;
+
+            // Update text elements
+            const langData = translations[lang];
+            if (!langData) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (langData[key]) {
+                    el.innerText = langData[key];
+                }
+            });
+        }
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
